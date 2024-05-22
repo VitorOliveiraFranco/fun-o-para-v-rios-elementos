@@ -1,0 +1,51 @@
+<style>
+    .baciaAcre{
+
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+
+    .infoAcre{
+
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        display: none;
+    }
+
+</style>
+
+    <div class="bacias baciaAcre" code="1">Bacia Acre</div>
+    <div class="infoAcre info" id="infoAcre" code="1">Informações Acre</div>
+
+<script>
+
+    (function() {
+
+        const bacias = document.getElementsByClassName('bacias');
+        const info = document.getElementsByClassName('info');
+
+        for(let i = 0; i < bacias.length; i++) {
+            
+            bacias[i].onclick = function() {
+
+                const codeBacia = bacias[i].getAttribute('code');
+                for(let i = 0; i < info.length; i++) {
+                
+                    const codeInfo = info[i].getAttribute('code');
+                    console.log(codeBacia + ' ' + codeInfo)
+                    if(codeBacia === codeInfo){
+
+                        const idInfo = info[i].getAttribute('id');
+                        const elementoIdInfo = document.getElementById(idInfo);
+                        elementoIdInfo.style.display = 'block';                        
+                        console.log(idInfo);
+                         
+                    }
+                }
+                
+            }
+        }
+    })();
+</script>
